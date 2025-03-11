@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kosár</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="cart.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Kosár</h1>
+        <div class="cart">
+            <a href="./cart.html" rel="noopener noreferrer">🛒 <span id="cart-count">0</span></a>
+            <button id="menu-button">☰ menü</button>
+            <div id="dropdown-menu" class="dropdown-content">
+                <a href="#contact" onclick="closeDropdown()">Kapcsolat</a>
+                <a href="index.html" onclick="closeDropdown()">Vissza a főoldalra</a>
+            </div>
+        </div>
+    </header>
+    <main class="idk">
+        <div class="tartalom">
+        <div id="cart-items"></div>
+        <div class="total">
+        <p id="total-price"> Összesen: 0 Ft</p>
+    </div>
+    
+    </div>
+    <button class="megrendel" onclick="order()">Megrendelés</button>
+    <button class="urites" onclick="clearCart()">Kosár ürítése</button>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
