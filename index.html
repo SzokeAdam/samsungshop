@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsung Áruház</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SamsungSharpSans:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+    <script src="./script.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            emailjs.init("oPY2IX5t5iEf2G9XT"); 
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <div class="cart">
+                <a href="./cart.html" rel="noopener noreferrer">
+                    <img src="shopping-cart.png" alt="Kosár" class="cart-icon">
+                    <span id="cart-count" class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+        <h1 class="samsung-font header-center" onclick="navigateToHome()">SAMSUNG ÁRUHÁZ</h1>
+        <div class="header-right">
+            <div class="header-buttons">
+                <img src="user_1.png" alt="User" class="user-icon" id="user-icon">
+            </div>
+        </div>
+        <div id="dropdown-menu" class="dropdown-content" style="display: none;">
+            <a href="contact.html" onclick="closeDropdown()">Kapcsolat</a>
+            <a href="cart.html" onclick="closeDropdown()">Kosár</a>
+            <a href="#" id="login-button" onclick="showLoginModal()">Bejelentkezés</a>
+        </div>
+        <div id="login-modal" class="login-modal">
+            <div class="login-modal-content">
+                <span id="close-login-modal" class="close">&times;</span>
+                <form id="login-form">
+                    <h2>Bejelentkezés</h2>
+                    <input type="email" id="email" placeholder="Email cím" required>
+                    <button type="button" id="send-2fa-code">OTP kód</button>
+                    <input type="text" id="2fa-code" placeholder="2FA kód" required>
+                    <button type="button" id="verify-2fa-code">Bejelentkezés</button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="product-list">
+            <div class="product" onclick="showProduct(1, 'Samsung Galaxy S24 Ultra 128GB', 350000, './1240638061.samsung-galaxy-s24-ultra-5g-256gb-12gb-ram-dual-sm-s928b.jpg', 'Ez a Samsung Galaxy S24 Ultra 128GB egy csúcskategóriás okostelefon, amely lenyűgöző kamerával és nagy teljesítményű processzorral rendelkezik.', 'Kijelző: 6.8 inch, RAM: 12GB, Akkumulátor: 5000mAh, Kamera: 108MP + 12MP + 10MP + 10MP, Tárhely: 128GB, Processzor: Exynos 2100')">
+                <img src="./1240638061.samsung-galaxy-s24-ultra-5g-256gb-12gb-ram-dual-sm-s928b.jpg" alt="Samsung Galaxy S24 Ultra 128GB">
+                <h2>Samsung Galaxy S24 Ultra 128GB</h2>
+                <p>Ár: 350.000 Ft</p>
+            </div>
+            <div class="product" onclick="showProduct(2, 'Samsung Galaxy S24 5G 256GB', 250000, '1240638100.samsung-galaxy-s24-5g-256gb-8gb-ram-dual-sm-s921b.jpg', 'A Samsung Galaxy S24 5G 256GB egy kiváló középkategóriás telefon, amely gyors 5G kapcsolattal és nagy tárhellyel rendelkezik.', 'Kijelző: 6.2 inch, RAM: 8GB, Akkumulátor: 4000mAh, Kamera: 64MP + 12MP + 5MP, Tárhely: 256GB, Processzor: Exynos 2100')">
+                <img src="1240638100.samsung-galaxy-s24-5g-256gb-8gb-ram-dual-sm-s921b.jpg" alt="Samsung Galaxy S24 5G 256GB">
+                <h2>Samsung Galaxy S24 5G 256GB</h2>
+                <p>Ár: 250.000 Ft</p>
+            </div>
+            <div class="product" onclick="showProduct(3, 'Samsung Galaxy S25 Ultra 5G 256GB', 440000, './1392161521.samsung-galaxy-s25-ultra-5g-256gb-12gb-ram-dual-sm-s938.jpg', 'A Samsung Galaxy S25 Ultra 5G 256GB a legújabb technológiákat kínálja, beleértve a 5G kapcsolatot és a nagy felbontású kamerát.', 'Kijelző: 6.9 inch, RAM: 12GB, Akkumulátor: 6000mAh, Kamera: 108MP + 12MP + 10MP + 10MP, Tárhely: 256GB, Processzor: Exynos 2200')">
+                <img src="./1392161521.samsung-galaxy-s25-ultra-5g-256gb-12gb-ram-dual-sm-s938.jpg" alt="Samsung Galaxy S25 Ultra 5G 256GB">
+                <h2>Samsung Galaxy S25 Ultra 5G 256GB</h2>
+                <p>Ár: 440.000 Ft</p>
+            </div>
+        </div>
+        <div class="product-list">
+            <div class="product" onclick="showProduct(4, 'Samsung Galaxy A35 5G 128GB', 350000, './1262382907.samsung-galaxy-a35-5g-128gb-6gb-ram-dual-sm-a356.jpg', 'A Samsung Galaxy A35 5G 128GB egy megfizethető árú telefon, amely 5G kapcsolattal és hosszú akkumulátor-élettartammal rendelkezik.', 'Kijelző: 6.5 inch, RAM: 6GB, Akkumulátor: 4500mAh, Kamera: 48MP + 8MP + 5MP, Tárhely: 128GB, Processzor: Exynos 1280')">
+                <img src="./1262382907.samsung-galaxy-a35-5g-128gb-6gb-ram-dual-sm-a356.jpg" alt="Samsung Galaxy A35 5G 128GB">
+                <h2>Samsung Galaxy A35 5G 128GB</h2>
+                <p>Ár: 103.000 Ft</p>
+            </div>
+            <div class="product" onclick="showProduct(5, 'Samsung Galaxy A55 5G 256GB', 160000, './2305903.samsung-galaxy-a55-5g-256gb-8gb-ram-dual-sm-a556.jpg', 'A Samsung Galaxy A55 5G 256GB egy középkategóriás telefon, amely nagy tárhellyel és gyors 5G kapcsolattal rendelkezik.', 'Kijelző: 6.7 inch, RAM: 8GB, Akkumulátor: 5000mAh, Kamera: 64MP + 12MP + 5MP, Tárhely: 256GB, Processzor: Exynos 1280')">
+                <img src="./2305903.samsung-galaxy-a55-5g-256gb-8gb-ram-dual-sm-a556.jpg" alt="Samsung Galaxy A55 5G 256GB">
+                <h2>Samsung Galaxy A55 5G 256GB</h2>
+                <p>Ár: 160.000 Ft</p>
+            </div>
+            <div class="product" onclick="showProduct(6, 'Samsung Galaxy S22 Ultra', 270000, './928880646.samsung-galaxy-s22-ultra-5g-256gb-12gb-ram-dual-sm-s908b.jpg', 'A Samsung Galaxy S22 Ultra egy prémium telefon, amely lenyűgöző kamerával és nagy teljesítményű processzorral rendelkezik.', 'Kijelző: 6.8 inch, RAM: 12GB, Akkumulátor: 5000mAh, Kamera: 108MP + 12MP + 10MP + 10MP, Tárhely: 256GB, Processzor: Exynos 2100')">
+                <img src="./928880646.samsung-galaxy-s22-ultra-5g-256gb-12gb-ram-dual-sm-s908b.jpg" alt="Samsung Galaxy S22 Ultra">
+                <h2>Samsung Galaxy S22 Ultra</h2>
+                <p>Ár: 270.000 Ft</p>
+            </div>
+        </div>
+        <div class="product-list">
+            <div class="product" onclick="showProduct(7, 'Samsung Galaxy Note 20 Ultra', 300000, './res_f499747736c58f858a0b2544bd836d82.webp', 'A Samsung Galaxy Note 20 Ultra egy prémium telefon, amely lenyűgöző kamerával és nagy teljesítményű processzorral rendelkezik.', 'Kijelző: 6.9 inch, RAM: 12GB, Akkumulátor: 4500mAh, Kamera: 108MP + 12MP + 12MP, Tárhely: 256GB, Processzor: Exynos 990')">
+                <img src="./res_f499747736c58f858a0b2544bd836d82.webp" alt="Samsung Galaxy Note 20 Ultra">
+                <h2>Samsung Galaxy Note 20 Ultra</h2>
+                <p>Ár: 300.000 Ft</p>
+            </div>
+            <div class="product" onclick="showProduct(8, 'Samsung Galaxy Z Fold 3', 600000, './845348481.samsung-galaxy-z-fold3-5g-512gb-12gb-ram-dual-f926.jpg', 'A Samsung Galaxy Z Fold 3 egy innovatív telefon, amely hajlítható kijelzővel és nagy teljesítményű processzorral rendelkezik.', 'Kijelző: 7.6 inch, RAM: 12GB, Akkumulátor: 4400mAh, Kamera: 12MP + 12MP + 12MP, Tárhely: 256GB, Processzor: Snapdragon 888')">
+                <img src="./845348481.samsung-galaxy-z-fold3-5g-512gb-12gb-ram-dual-f926.jpg" alt="Samsung Galaxy Z Fold 3">
+                <h2>Samsung Galaxy Z Fold 3</h2>
+                <p>Ár: 600.000 Ft</p>
+            </div>
+            <div class="product" onclick="showProduct(9, 'Samsung Galaxy Z Flip 3', 400000, './samsung-galaxy-z-flip3-5g-8-128gb-black-sm-f711bzkaeue-433404.jpg', 'A Samsung Galaxy Z Flip 3 egy stílusos telefon, amely hajlítható kijelzővel és nagy teljesítményű processzorral rendelkezik.', 'Kijelző: 6.7 inch, RAM: 8GB, Akkumulátor: 3300mAh, Kamera: 12MP + 12MP, Tárhely: 128GB, Processzor: Snapdragon 888')">
+                <img src="./samsung-galaxy-z-flip3-5g-8-128gb-black-sm-f711bzkaeue-433404.jpg" alt="Samsung Galaxy Z Flip 3">
+                <h2>Samsung Galaxy Z Flip 3</h2>
+                <p>Ár: 400.000 Ft</p>
+            </div>
+        </div>
+    </main>
+    <div id="product-modal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-left">
+                <img id="modal-img" src="" alt="Termék kép">
+                <h2 id="modal-title"></h2>
+                <p id="modal-price"></p>
+                <button id="add-to-cart-btn">Hozzáadás a kosárhoz</button>
+            </div>
+            <div class="modal-right">
+                <h2>Termékleírás</h2>
+                <p id="modal-description"></p>
+            </div>
+            <div class="modal-bottom">
+                <h2>Specifikációk</h2>
+                <div class="specs-container">
+                    <table id="modal-specs-table" class="centered-table">
+                        <!-- Specifications will be inserted here -->
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

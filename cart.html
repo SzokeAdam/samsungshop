@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kosár</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <script src="cart.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <div class="cart">
+                <a href="./cart.html" rel="noopener noreferrer">
+                    <img src="shopping-cart.png" alt="Kosár" class="cart-icon">
+                    <span id="cart-count" class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+        <h1 class="samsung-font header-center" onclick="navigateToHome()">SAMSUNG ÁRUHÁZ</h1>
+        <div class="header-right">
+            <div class="header-buttons">
+                <img src="user_1.png" alt="User" class="user-icon" id="user-icon">
+            </div>
+        </div>
+        <div id="dropdown-menu" class="dropdown-content" style="display: none;">
+            <a href="contact.html" onclick="closeDropdown()">Kapcsolat</a>
+            <a href="cart.html" onclick="closeDropdown()">Kosár</a>
+            <a href="#" id="login-button" onclick="showLoginModal()">Bejelentkezés</a>
+        </div>
+    </header>
+    <main class="idk">
+        <div class="tartalom">
+            <div id="cart-items"></div>
+            <div class="total">
+                <p id="total-price">Összesen: 0 Ft</p>
+            </div>
+        </div>
+        <div class="button-group">
+            <button class="megrendel" onclick="showOrderModal()">Megrendelés</button>
+            <button class="urites" onclick="clearCart()">Kosár ürítése</button>
+            <button onclick="window.location.href='index.html'">Vissza a főoldalra</button>
+        </div>
+    </main>
+    <div id="order-modal" class="order-modal">
+        <div class="order-modal-content">
+            <span class="close" onclick="closeOrderModal()" style="color: red;">&times;</span>
+            <form>
+                <h2>Szállítási adatok</h2>
+                <label>Név: <input type="text" name="name" required></label>
+                <label>Cím: <input type="text" name="address" required></label>
+                <label>Város: <input type="text" name="city" required></label>
+                <label>Irányítószám: <input type="text" name="zip" required></label>
+                <label>Telefon: <input type="text" name="phone" required></label>
+                <h2>Fizetési opciók</h2>
+                <label>
+                    <img src="./Mastercard_logo.webp" alt="Mastercard" width="30"> Hitelkártya 
+                    <input type="radio" name="payment" value="credit-card" onclick="toggleCardDetails(true, false, false)">
+                </label>
+                <div id="card-details" style="display: none;">
+                    <label>Kártyaszám: <input type="text" name="card-number" required></label>
+                    <label>Lejárati dátum: <input type="text" name="expiry-date" placeholder="MM/YY" required></label>
+                    <label>CVC: <input type="text" name="cvc" required></label>
+                </div>
+                <label>
+                    <img src="paypal-3384015_1280.webp" alt="PayPal" width="30"> PayPal 
+                    <input type="radio" name="payment" value="paypal" onclick="toggleCardDetails(false, true, false)">
+                </label>
+                <div id="paypal-details" style="display: none;">
+                    <label>Email: <input type="email" name="paypal-email" required></label>
+                </div>
+                <label>
+                    <img src="bank-transfer-logo-png_seeklogo-492080.png" alt="Bank Transfer" width="30"> Banki átutalás 
+                    <input type="radio" name="payment" value="bank-transfer" onclick="toggleCardDetails(false, false, false)">
+                </label>
+                <label>
+                    <img src="360_F_604866831_hHgCSigPumPTzg0Vcad9sFOEzdX1xC4t.jpg" alt="Cash on Delivery" width="30"> Utánvét 
+                    <input type="radio" name="payment" value="cash-on-delivery" onclick="toggleCardDetails(false, false, true)">
+                    <span id="cod-fee" style="color: green; font-weight: bold; display: none;">+650 Ft</span>
+                </label>
+                <div id="map" style="display: none;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2381.691939488428!2d-6.260309684198637!3d53.34980597997971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670e9b8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sGoogle!5e0!3m2!1sen!2sus!4v1633024800000!5m2!1sen!2sus" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <button type="button" onclick="submitOrder()">Megrendelés</button>
+            </form>
+        </div>
+    </div>
+    <div id="empty-cart-modal" class="modal" onclick="closeEmptyCartModal()">
+        <div class="modal-content small-modal" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeEmptyCartModal()">&times;</span>
+            <h2 class="samsung-font">Nincs megrendelni való termék. Kérjük, először válasszon terméket!</h2>
+        </div>
+    </div>
+</body>
+</html>

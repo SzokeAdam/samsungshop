@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapcsolat</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <div class="cart">
+                <a href="./cart.html" rel="noopener noreferrer">
+                    <img src="shopping-cart.png" alt="Kosár" class="cart-icon">
+                    <span id="cart-count" class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+        <h1 class="samsung-font header-center" onclick="navigateToHome()">SAMSUNG ÁRUHÁZ</h1>
+        <div class="header-right">
+            <div class="header-buttons">
+                <img src="user_1.png" alt="User" class="user-icon" id="user-icon">
+            </div>
+        </div>
+        <div id="dropdown-menu" class="dropdown-content" style="display: none;">
+            <a href="contact.html" onclick="closeDropdown()">Kapcsolat</a>
+            <a href="cart.html" onclick="closeDropdown()">Kosár</a>
+            <a href="#" id="login-button" onclick="showLoginModal()">Bejelentkezés</a>
+        </div>
+    </header>
+    <main>
+        <div class="contact-container">
+            <h2>Kapcsolat</h2>
+            <p>Ha bármilyen kérdése van, kérjük, lépjen kapcsolatba velünk az alábbi elérhetőségeken:</p>
+            <p>Email: info@samsungaruhaz.hu</p>
+            <p>Telefon: +36 1 234 5678</p>
+            <p>Cím: 1234 Budapest, Samsung utca 1.</p>
+            <p><a href="index.html">Vissza a főoldalra</a></p>
+        </div>
+    </main>
+</body>
+</html>
